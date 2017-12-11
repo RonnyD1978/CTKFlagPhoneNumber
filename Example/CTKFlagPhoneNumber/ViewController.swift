@@ -26,7 +26,6 @@ class ViewController: UIViewController {
 		phoneNumberTextField.center = view.center
 		phoneNumberTextField.setFlag(with: "FR")
 		phoneNumberTextField.set(phoneNumber: "0600000001")
-		phoneNumberTextField.flagSize = CGSize(width: 44, height: 44)
 
 		view.addSubview(phoneNumberTextField)
 

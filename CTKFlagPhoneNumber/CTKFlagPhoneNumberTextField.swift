@@ -18,11 +18,8 @@ import libPhoneNumber_iOS
 
 public class CTKFlagPhoneNumberTextField: UITextField {
 		
-	public var flagSize = CGSize(width: 32, height: 32) {
-		didSet {
-			layoutSubviews()
-		}
-	}
+	private static let FlagSize = CGSize(width: 32, height: 32)
+	
 	public var flagButtonEdgeInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8) {
 		didSet {
 			layoutSubviews()
@@ -48,8 +45,8 @@ public class CTKFlagPhoneNumberTextField: UITextField {
 	
 	private var leftViewSize: CGSize {
 		return CGSize(
-			width: flagSize.width + flagButtonEdgeInsets.left + flagButtonEdgeInsets.right,
-			height: flagSize.height + flagButtonEdgeInsets.top + flagButtonEdgeInsets.bottom)
+			width: CTKFlagPhoneNumberTextField.FlagSize.width + flagButtonEdgeInsets.left + flagButtonEdgeInsets.right,
+			height: CTKFlagPhoneNumberTextField.FlagSize.height + flagButtonEdgeInsets.top + flagButtonEdgeInsets.bottom)
 	}
 	
 	public override var intrinsicContentSize: CGSize {
@@ -114,7 +111,7 @@ public class CTKFlagPhoneNumberTextField: UITextField {
 		super.layoutSubviews()
 		
 		leftView?.frame = leftViewRect(forBounds: frame)
-		flagButton.frame = CGRect(x: flagButtonEdgeInsets.left, y: flagButtonEdgeInsets.top, width: flagSize.width, height: flagSize.height)
+		flagButton.frame = CGRect(x: flagButtonEdgeInsets.left, y: flagButtonEdgeInsets.top, width: CTKFlagPhoneNumberTextField.FlagSize.width, height: CTKFlagPhoneNumberTextField.FlagSize.height)
 	}
 	
 	public override func leftViewRect(forBounds bounds: CGRect) -> CGRect {
