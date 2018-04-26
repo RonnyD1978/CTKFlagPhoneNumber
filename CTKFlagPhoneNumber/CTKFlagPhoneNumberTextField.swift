@@ -29,6 +29,7 @@ open class CTKFlagPhoneNumberTextField: UITextField, UITextFieldDelegate, Countr
 		}
 	}
 
+    public var isCountrySelectionEnabled: Bool = true
 	public var parentViewController: UIViewController?
 	private var flagButton: UIButton!
 	private lazy var countryPicker: CountryPicker = CountryPicker()
@@ -153,6 +154,8 @@ open class CTKFlagPhoneNumberTextField: UITextField, UITextFieldDelegate, Countr
 	}
 	
 	@objc private func displayCountryKeyboard() {
+        guard isCountrySelectionEnabled else { return }
+        
 		inputView = countryPicker
 		inputAccessoryView = getToolBar(with: getCountryListBarButtonItems())
 		tintColor = .clear
